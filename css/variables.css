@@ -1,7 +1,3 @@
-/* 
- * variables.css
- * Variáveis globais do projeto (cores, fontes, espaçamentos)
- */
 
 :root {
   /* === CORES PRINCIPAIS === */
@@ -23,8 +19,8 @@
   
   /* Cores de texto */
   --text-primary: #ffffff;    /* Branco */
-  --text-secondary: #cbd5e1;  /* Cinza claro */
-  --text-muted: #94a3b8;      /* Cinza médio */
+  --text-secondary: #e2e8f0;  /* Cinza mais claro */
+  --text-muted: #cbd5e1;      /* Cinza claro */
   
   /* Cores semânticas */
   --success: #10b981;         /* Verde */
