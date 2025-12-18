@@ -1,0 +1,75 @@
+# Configuração do Netlify para o portfólio
+
+[build]
+  # Pasta raiz a ser publicada
+  publish = "."
+  
+  # Comando de build (não precisamos neste caso)
+  command = "echo 'Site estático - sem build necessário'"
+
+# Redirecionamentos (SPA-like behavior)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+
+# Headers de segurança
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Previne clickjacking
+    X-Frame-Options = "DENY"
+    
+    # Previne XSS (cross-site scripting)
+    X-XSS-Protection = "1; mode=block"
+    
+    # Previne MIME type sniffing
+    X-Content-Type-Options = "nosniff"
+    
+    # Política de referrer
+    Referrer-Policy = "no-referrer-when-downgrade"
+    
+    # Permissões de recursos
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Headers para assets (cache)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Headers para CSS e JS
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Headers para HTML (sem cache)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Página 404 personalizada (opcional)
+# [[redirects]]
+#   from = "/*"
+#   to = "/404.html"
+#   status = 404
+
+# Configurações de contexto (produção)
+[context.production]
+  environment = { NODE_ENV = "production" }
+
+# Configurações para branch develop (se usar)
+[context.develop]
+  environment = { NODE_ENV = "development" }
+
+# Plugin para otimização de imagens (opcional - requer configuração adicional)
+# [[plugins]]
+#   package = "@netlify/plugin-nextjs"

@@ -1,0 +1,102 @@
+/* 
+ * reset.css
+ * Normalização e reset de estilos padrão do navegador
+ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove margens e paddings padrão */
+body,
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, li,
+figure, figcaption,
+blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove estilo padrão de listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Remove decoração padrão de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Imagens responsivas */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fontes herdadas para inputs e buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Remove aparência padrão de buttons */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Altura mínima do body */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove spinner dos inputs number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Melhor renderização de texto */
+body {
+  text-rendering: optimizeSpeed;
+}
+
+/* Foco visível para acessibilidade */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Remove outline padrão mas mantém para teclado */
+:focus:not(:focus-visible) {
+  outline: none;
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Currículo completo de Natan Dias - Trajetória profissional, formação acadêmica e experiências.">
+    <title>Currículo | Natan Dias</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/pages/curriculo.css">
+</head>
+<body>
+    
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">ND</a>
+            
+            <div class="navbar-menu">
+                <a href="index.html" class="navbar-link">Início</a>
+                <a href="curriculo.html" class="navbar-link">Currículo</a>
+                <a href="projetos.html" class="navbar-link">Projetos</a>
+                <a href="competencias.html" class="navbar-link">Competências</a>
+                <a href="contato.html" class="navbar-link">Contato</a>
+            </div>
+            
+            <button class="navbar-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <div class="navbar-mobile">
+            <div class="navbar-mobile-menu">
+                <a href="index.html" class="navbar-mobile-link">Início</a>
+                <a href="curriculo.html" class="navbar-mobile-link">Currículo</a>
+                <a href="projetos.html" class="navbar-mobile-link">Projetos</a>
+                <a href="competencias.html" class="navbar-mobile-link">Competências</a>
+                <a href="contato.html" class="navbar-mobile-link">Contato</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- HERO SECTION -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title" data-animate="slide-up">Minha Trajetória</h1>
+            <p class="page-subtitle" data-animate="slide-up">
+                Uma jornada de aprendizado contínuo, combinando experiência administrativa 
+                com transição para a área de tecnologia
+            </p>
+            
+            <!-- Download CV -->
+            <div class="cv-download" data-animate="fade-in">
+                <a href="assets/documents/curriculo-natan-dias.pdf" download class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download CV (PDF)
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SOBRE MIM -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content" data-animate="fade-in">
+                <h2 class="section-title">Sobre Mim</h2>
+                <div class="about-text" id="about-text">
+                    <p>
+                        Sou graduado em <strong>Ciências Contábeis</strong> pela UFPB e <strong>Arquivologia</strong> pela UEPB - 
+                        cursos que realizei simultaneamente, demonstrando minha capacidade de gestão e comprometimento. 
+                        Também possuo MBA em Perícia Contábil e Gestão Tributária, e atualmente curso 
+                        <strong>Análise e Desenvolvimento de Sistemas</strong> no UNIPÊ.
+                    </p>
+                    <p>
+                        Com mais de 8 anos de experiência corporativa, atuei em gestão administrativa, análise de crédito, 
+                        supervisão de equipes e processos contábeis. Essa vivência me proporcionou habilidades valiosas em 
+                        análise de requisitos, comunicação com stakeholders e otimização de processos - competências que 
+                        hoje aplico no desenvolvimento de software.
+                    </p>
+                    <p>
+                        Minha paixão por tecnologia me levou a desenvolver projetos práticos de forma autônoma: sites completos 
+                        com frontend e backend, integração com banco de dados e sistemas de autenticação. Estudo Python, 
+                        JavaScript e PHP, com o objetivo de me tornar um desenvolvedor full stack.
+                    </p>
+                    <p>
+                        Busco oportunidades como <strong>desenvolvedor júnior, trainee ou estágio em tecnologia</strong>, 
+                        mas também estou aberto a posições administrativas e híbridas que valorizem minha experiência multidisciplinar.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- TIMELINE -->
+    <section class="timeline-section">
+        <div class="container">
+            <!-- Filtros -->
+            <div class="timeline-filters" data-animate="fade-in">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="formacao">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                    Formação
+                </button>
+                <button class="filter-btn" data-filter="experiencia">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                    Experiência
+                </button>
+                <button class="filter-btn" data-filter="curso">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
+                    Cursos
+                </button>
+            </div>
+            
+            <!-- Timeline Container -->
+            <div class="timeline">
+                <!-- Linha vertical -->
+                <div class="timeline-line"></div>
+                
+                <!-- Bola flutuante -->
+                <div class="timeline-indicator"></div>
+                
+                <!-- Loading State -->
+                <div class="timeline-loading" id="timeline-loading">
+                    <div class="spinner"></div>
+                    <p>Carregando trajetória...</p>
+                </div>
+                
+                <!-- Timeline Items (será preenchido via JavaScript) -->
+                <div class="timeline-items" id="timeline-items">
+                    <!-- Os itens serão inseridos aqui dinamicamente -->
+                </div>
+                
+                <!-- Empty State -->
+                <div class="timeline-empty" id="timeline-empty" style="display: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <h3>Nenhum item encontrado</h3>
+                    <p>Não há registros para o filtro selecionado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">ND</div>
+                    <p class="footer-description">
+                        Profissional em transição para tecnologia, desenvolvendo projetos web 
+                        e combinando experiência administrativa com habilidades de programação.
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-links-title">Navegação</h3>
+                    <a href="index.html" class="footer-link">Início</a>
+                    <a href="curriculo.html" class="footer-link">Currículo</a>
+                    <a href="projetos.html" class="footer-link">Projetos</a>
+                    <a href="competencias.html" class="footer-link">Competências</a>
+                    <a href="contato.html" class="footer-link">Contato</a>
+                </div>
+                
+                <div class="footer-social">
+                    <h3 class="footer-social-title">Conecte-se</h3>
+                    <div class="footer-social-icons">
+                        <a href="https://github.com/DiasNatan" target="_blank" class="footer-social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/in/natan-dias-283765190" target="_blank" class="footer-social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:natan.said@gmail.com" class="footer-social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 <strong>Natan Dias</strong>. Todos os direitos reservados.
+                </p>
+                <p class="footer-love">
+                    Desenvolvido com <span class="heart">💙</span> por mim mesmo
+                </p>
+                <div class="footer-admin">
+                    <a href="admin.html" class="footer-admin-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        Admin
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- SCRIPTS -->
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- App Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/pages/curriculo.js"></script>
+</body>
+</html>

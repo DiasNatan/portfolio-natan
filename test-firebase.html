@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Firebase - Portfolio Natan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #1e3a8a;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .status-item {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+        
+        .loading {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .icon {
+            font-size: 24px;
+        }
+        
+        .info {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f3f4f6;
+            border-radius: 10px;
+        }
+        
+        .info h3 {
+            color: #374151;
+            margin-bottom: 10px;
+        }
+        
+        .info p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+        
+        .code {
+            background: #1f2937;
+            color: #10b981;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Teste de Conexão Firebase</h1>
+        
+        <div id="status-app" class="status-item loading">
+            <span class="icon">⏳</span>
+            <span>Inicializando Firebase App...</span>
+        </div>
+        
+        <div id="status-auth" class="status-item loading">
+            <span class="icon">⏳</span>
+            <span>Conectando Authentication...</span>
+        </div>
+        
+        <div id="status-firestore" class="status-item loading">
+            <span class="icon">⏳</span>
+            <span>Conectando Firestore Database...</span>
+        </div>
+        
+        <div id="status-storage" class="status-item loading">
+            <span class="icon">⏳</span>
+            <span>Conectando Storage...</span>
+        </div>
+        
+        <div class="info" id="info" style="display: none;">
+            <h3>ℹ️ Informações do Projeto</h3>
+            <p><strong>Project ID:</strong> <span id="project-id"></span></p>
+            <p><strong>Auth Domain:</strong> <span id="auth-domain"></span></p>
+            <p><strong>Storage Bucket:</strong> <span id="storage-bucket"></span></p>
+        </div>
+        
+        <div class="code" id="console"></div>
+    </div>
+
+    <!-- Firebase SDK v10 (compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+    
+    <!-- Configuração Firebase -->
+    <script src="js/firebase-config.js"></script>
+    
+    <script>
+        const consoleDiv = document.getElementById('console');
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString('pt-BR');
+            const prefix = type === 'error' ? '❌' : type === 'success' ? '✅' : 'ℹ️';
+            consoleDiv.innerHTML += `[${timestamp}] ${prefix} ${message}<br>`;
+            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+        }
+        
+        function updateStatus(elementId, success, message) {
+            const element = document.getElementById(elementId);
+            element.className = `status-item ${success ? 'success' : 'error'}`;
+            element.innerHTML = `
+                <span class="icon">${success ? '✅' : '❌'}</span>
+                <span>${message}</span>
+            `;
+        }
+        
+        async function testFirebase() {
+            log('Iniciando testes do Firebase...', 'info');
+            
+            // Teste 1: Firebase App
+            try {
+                if (window.firebaseApp) {
+                    updateStatus('status-app', true, 'Firebase App inicializado com sucesso!');
+                    log('Firebase App OK', 'success');
+                } else {
+                    throw new Error('Firebase App não inicializado');
+                }
+            } catch (error) {
+                updateStatus('status-app', false, `Erro: ${error.message}`);
+                log(`Firebase App ERROR: ${error.message}`, 'error');
+                return;
+            }
+            
+            // Teste 2: Authentication
+            try {
+                if (window.firebaseAuth) {
+                    updateStatus('status-auth', true, 'Authentication conectado!');
+                    log('Firebase Auth OK', 'success');
+                } else {
+                    throw new Error('Authentication não inicializado');
+                }
+            } catch (error) {
+                updateStatus('status-auth', false, `Erro: ${error.message}`);
+                log(`Firebase Auth ERROR: ${error.message}`, 'error');
+            }
+            
+            // Teste 3: Firestore
+            try {
+                if (window.firebaseDb) {
+                    // Tentar fazer uma query simples
+                    await window.firebaseDb.collection('_test').limit(1).get();
+                    updateStatus('status-firestore', true, 'Firestore Database conectado!');
+                    log('Firestore OK', 'success');
+                } else {
+                    throw new Error('Firestore não inicializado');
+                }
+            } catch (error) {
+                updateStatus('status-firestore', false, `Erro: ${error.message}`);
+                log(`Firestore ERROR: ${error.message}`, 'error');
+            }
+            
+            // Teste 4: Storage
+            try {
+                if (window.firebaseStorage) {
+                    const storageRef = window.firebaseStorage.ref();
+                    updateStatus('status-storage', true, 'Storage conectado!');
+                    log('Storage OK', 'success');
+                } else {
+                    throw new Error('Storage não inicializado');
+                }
+            } catch (error) {
+                updateStatus('status-storage', false, `Erro: ${error.message}`);
+                log(`Storage ERROR: ${error.message}`, 'error');
+            }
+            
+            // Mostrar informações do projeto
+            const infoDiv = document.getElementById('info');
+            infoDiv.style.display = 'block';
+            document.getElementById('project-id').textContent = firebaseConfig.projectId;
+            document.getElementById('auth-domain').textContent = firebaseConfig.authDomain;
+            document.getElementById('storage-bucket').textContent = firebaseConfig.storageBucket;
+            
+            log('Todos os testes concluídos!', 'success');
+        }
+        
+        // Executar testes após 1 segundo
+        setTimeout(testFirebase, 1000);
+    </script>
+</body>
+</html>
